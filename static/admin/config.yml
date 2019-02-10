@@ -26,8 +26,8 @@ collections:
           widget: select,
           multiple: true,
           options:
-            -{label: 'test1', value: 'abc'}
-            -{label: 'test2', value: '123'}
-            -{label: 'test3', value: ',./'}
+            - { label: 'test1', value: 'abc' }
+            - { label: 'test2', value: '123' }
+            - { label: 'test3', value: ',./' }
         }
       - { name: body, label: Body, widget: markdown }
