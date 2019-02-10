@@ -14,4 +14,20 @@ collections:
       - { name: path, label: Path }
       - { name: date, label: Date, widget: date }
       - { name: title, label: Title }
+      - {
+          name: category,
+          label: Category,
+          widget: select,
+          options: ["feature", "grow", "healing"],
+        }
+      - {
+          name: categoryMulti,
+          label: Category Multi,
+          widget: select,
+          multiple: true,
+          options:
+            -{label: 'test1', value: 'abc'}
+            -{label: 'test2', value: '123'}
+            -{label: 'test3', value: ',./'}
+        }
       - { name: body, label: Body, widget: markdown }
