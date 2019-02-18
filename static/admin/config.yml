@@ -48,6 +48,7 @@ collections:
     label: Authors
     folder: authors
     create: true
+    identifier_field: name
     fields:
       - { name: bio, label: Bio }
       - name: "authorimage"
@@ -58,6 +59,7 @@ collections:
     label: Categories
     folder: categories
     create: true
+    identifier_field: label
     fields:
       - { name: label, label: Label }
       - { name: value, label: Value, widget: number, valueType: int }
