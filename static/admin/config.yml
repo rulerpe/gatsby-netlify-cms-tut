@@ -6,26 +6,58 @@ media_folder: static/assets
 public_folder: assets
 
 collections:
-  - name: blog
-    label: Blog
-    folder: blog
+  - name: posts
+    label: Posts
+    folder: posts
     create: true
     fields:
-      - { name: path, label: Path }
-      - { name: date, label: Date, widget: date }
       - { name: title, label: Title }
+      - { name: subtitle, label: Subtitle }
+      - { name: metadescription, label: Metadescription }
+      - { name: shortname, label: Shortname }
+      - { name: postdate, label: Postdate, widget: date }
+      - name: "author"
+        label: "Author"
+        widget: "relation"
+        collection: "authors"
+        searchFields: ["name"]
+        valueField: "name"
+      - name: "category"
+        label: "Category"
+        widget: "relation"
+        collection: "categories"
+        searchFields: ["label"]
+        valueField: "value"
+      - { name: content, label: Content, widget: markdown }
+      - { name: createat, label: CreatedAt, widget: hidden }
+      - name: "featuredimageurl"
+        label: "Featured Image"
+        widget: "image"
+      - name: "readtime"
+        label: "Read Time"
+        widget: "number"
+        default: 0
+        valueType: "int"
       - {
-          name: category,
-          label: Category,
-          widget: select,
-          options: ["feature", "grow", "healing"],
+          label: "Show Feature Image",
+          name: "showfeatureimage",
+          widget: "boolean",
+          default: true,
         }
-      - label: "City"
-        name: "airport-code"
-        widget: "select"
-        multiple: true
-        options:
-          - { label: "Chicago", value: "ORD" }
-          - { label: "Paris", value: "CDG" }
-          - { label: "Tokyo", value: "HND" }
-      - { name: body, label: Body, widget: markdown }
+  - name: authors
+    label: Authors
+    folder: authors
+    create: true
+    fields:
+      - { name: bio, label: Bio }
+      - name: "authorimage"
+        label: "Author Image"
+        widget: "image"
+      - { name: name, label: Name }
+  - name: categories
+    label: Categories
+    folder: categories
+    create: true
+    fields:
+      - { name: label, label: Label }
+      - { name: value, label: Value, widget: number, valueType: int }
